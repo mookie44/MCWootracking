@@ -25,7 +25,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
                 add_action( 'admin_init', array($this, 'mc_register_plugin_settings' ));
                 add_action( 'save_post',  array($this, 'mc_save_tracking' ), 10, 1 );
                 add_action( 'woocommerce_view_order', array($this, 'mc_action_woocommerce_view_order'), 10, 1 ); 
-        add_action( 'woocommerce_email_order_meta', array($this, 'mc_action_woocommerce_email_order_meta'), 10, 4 ); 
+				add_action( 'woocommerce_email_order_meta', array($this, 'mc_action_woocommerce_email_order_meta'), 10, 4 ); 
                 // Set Plugin Path
                 $this->pluginPath = dirname(__FILE__);
             }
@@ -88,8 +88,8 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
                 $order = wc_get_order( $post_id );
                 if($order){
                     // --- Its safe for us to save the data ! --- //
-            $mc_tracking_code   = sanitize_text_field($_POST['mc_tracking_code']);
-            $mc_courier     = sanitize_text_field($_POST['mc_courier']);
+					$mc_tracking_code   = sanitize_text_field($_POST['mc_tracking_code']);
+					$mc_courier     = sanitize_text_field($_POST['mc_courier']);
                     $order->update_meta_data( '_mc_tracking_code', $mc_tracking_code );
                     $order->update_meta_data( '_mc_courier', $mc_courier );
                     $order->save();
