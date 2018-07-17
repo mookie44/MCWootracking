@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: MC Woocommerce Tracking
- * Plugin URI: 
+ * Plugin URI: https://github.com/mookie44/MCWootracking
  * Description: Order tracking code and courier fields 
  * Version: 1.0.0
  * Author: Matt Cook
- * Author URI: 
+ * Author URI: https://github.com/mookie44
  * Tested up to: 4.9
  * WC requires at least: 2.6
  * WC tested up to: 3.4
