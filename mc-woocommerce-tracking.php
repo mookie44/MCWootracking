@@ -22,26 +22,25 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
         class MCWootracking {
 
             public function __construct(){
-                add_action( 'admin_init', array($this, 'mc_register_plugin_settings' ));
-                add_action( 'save_post',  array($this, 'mc_save_tracking' ), 10, 1 );
-                add_action( 'woocommerce_view_order', array($this, 'mc_action_woocommerce_view_order'), 10, 1 ); 
+				add_action( 'admin_init', array($this, 'mc_register_plugin_settings' ));
+				add_action( 'save_post',  array($this, 'mc_save_tracking' ), 10, 1 );
+				add_action( 'woocommerce_view_order', array($this, 'mc_action_woocommerce_view_order'), 10, 1 ); 
 				add_action( 'woocommerce_email_order_meta', array($this, 'mc_action_woocommerce_email_order_meta'), 10, 4 ); 
-                // Set Plugin Path
-                $this->pluginPath = dirname(__FILE__);
+				// Set Plugin Path
+				$this->pluginPath = dirname(__FILE__);
             }
 
             public function mc_register_plugin_settings() {
-                //register our settings
-                add_meta_box( 'mc_order_packaging', __('Order Tracking','woocommerce'), array($this,'mc_order_packaging'), 'shop_order', 'side', 'high' );
-
+				//register our settings
+				add_meta_box( 'mc_order_packaging', __('Order Tracking','woocommerce'), array($this,'mc_order_packaging'), 'shop_order', 'side', 'high' );
             }
 
             // add tracking input boxes to the admin order page
             public function mc_order_packaging(){
-                global $post;
+				global $post;
 
-                $mc_tracking_code = get_post_meta( $post->ID, '_mc_tracking_code', true ) ? get_post_meta( $post->ID, '_mc_tracking_code', true ) : '';
-                $mc_courier = get_post_meta( $post->ID, '_mc_courier', true ) ? get_post_meta( $post->ID, '_mc_courier', true ) : '';
+				$mc_tracking_code = get_post_meta( $post->ID, '_mc_tracking_code', true ) ? get_post_meta( $post->ID, '_mc_tracking_code', true ) : '';
+				$mc_courier = get_post_meta( $post->ID, '_mc_courier', true ) ? get_post_meta( $post->ID, '_mc_courier', true ) : '';
 
                 echo '<input type="hidden" name="mc_order_tracking_nonce" value="' . wp_create_nonce() . '">
                 <p style="border-bottom:solid 1px #eee;padding-bottom:13px;">
