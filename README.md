@@ -1,3 +1,5 @@
+https://wordpress.org/plugins/mc-woocommerce-tracking/
+
 === MC Woocommerce Tracking ===
 Contributors: mookie4a4
 Requires at least: 4.6
